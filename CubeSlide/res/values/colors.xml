@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="Background">#482313</color>
+    <color name="Spielfeld">#E0E0A0</color>
     
+    <color name="Spielstein1">#36CD24</color>
+    <color name="Spielstein2">#0000FF</color>
+    <color name="Spielstein3">#FF00FF</color>
+    <color name="Spielstein4">#800000</color>
+    <color name="Spielstein5">#FFFF00</color>
+    
+    <color name="Spielstein1H">#186412</color>
+    <color name="Spielstein2H">#000088</color>
+    <color name="Spielstein3H">#880088</color>
+    <color name="Spielstein4H">#400000</color>
+    <color name="Spielstein5H">#888800</color>
+    
+    <color name="SpielsteinUnbekannt">#C0C0C0</color>
 </resources>

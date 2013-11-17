@@ -1,11 +1,15 @@
 package de.kgftit.cubeslide;
 
+
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
+import android.widget.FrameLayout;
 
-public class CubeSlide extends Activity {
-
+public class CubeSlide extends RoboActivity {
+	@InjectView(R.id.spielbereich) FrameLayout spielfeld;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
