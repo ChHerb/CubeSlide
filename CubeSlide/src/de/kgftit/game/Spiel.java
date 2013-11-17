@@ -1,6 +1,7 @@
 package de.kgftit.game;
 
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 public class Spiel {
 	private int lines;
@@ -13,6 +14,7 @@ public class Spiel {
 	private int level;
 	
 	private FrameLayout spielfeld;
+	
 	public Spiel(FrameLayout spielfeld){
 		lines = 15;
 		rows = 7;
@@ -20,8 +22,12 @@ public class Spiel {
 		littleBonus = 10;
 		factor = 1;
 		this.spielfeld = spielfeld;
+		
 	}
 	
+	public void getLine(){
+		
+	}
 	
 	
 	public int getLittleBonus() {
