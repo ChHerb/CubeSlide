@@ -15,5 +15,11 @@
     <color name="Spielstein4H">#400000</color>
     <color name="Spielstein5H">#888800</color>
     
+    <color name="Spielstein1B">#050500</color>
+    <color name="Spielstein2B">#000505</color>
+    <color name="Spielstein3B">#050005</color>
+    <color name="Spielstein4B">#101000</color>
+    <color name="Spielstein5B">#002020</color>
+    
     <color name="SpielsteinUnbekannt">#C0C0C0</color>
 </resources>

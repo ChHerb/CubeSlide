@@ -1,40 +1,56 @@
 package de.kgftit.game;
 
+
+import android.graphics.Point;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 public class Spiel {
-	private int lines;
-	private int rows;
-	private int littleBonus;
+	private final int lines = 15;
+	private final int rows = 7;
+	private final int littleBonus = 10;
+	private final int startLines = 5;
 	private int factor;
 	
 	private int punkte;
 	private int speed;
 	private int level;
+	private int cubeSize;
 	
 	private FrameLayout spielfeld;
 	
-	public Spiel(FrameLayout spielfeld){
-		lines = 15;
-		rows = 7;
+	public Spiel(FrameLayout spielfeld, Point p){
 		speed = 1;
-		littleBonus = 10;
 		factor = 1;
+		// Margin = 40
+		int sizeX = (p.x) / rows;
+		int sizeY = (p.y) / lines;
+		cubeSize = Math.min(sizeX, sizeY);
+		
 		this.spielfeld = spielfeld;
+		LayoutParams lp = spielfeld.getLayoutParams();
+		lp.width = cubeSize * rows;
+		lp.height = cubeSize * lines;
+		this.spielfeld.setLayoutParams(lp);
+		for (int index1 = 0; index1 < startLines;index1++){
+			Point pos = new Point();
+			pos.x = 0;
+			pos.y = (lines - (startLines - index1)) * cubeSize;
+			getLine(false, pos);
+		}
 		
 	}
 	
-	public void getLine(){
-		
+	public void getLine(boolean isHidden, Point pos){
+		for(int index1 = 0; index1 < rows; index1++ ){
+			spielfeld.addView(new Cube(spielfeld,cubeSize,false,isHidden,pos));
+			
+		}
 	}
 	
 	
 	public int getLittleBonus() {
 		return littleBonus;
-	}
-	public void setLittleBonus(int littleBonus) {
-		this.littleBonus = littleBonus;
 	}
 	public int getFactor() {
 		return factor;
@@ -63,13 +79,18 @@ public class Spiel {
 	public int getLines() {
 		return lines;
 	}
-	public void setLines(int lines) {
-		this.lines = lines;
-	}
 	public int getRows() {
 		return rows;
 	}
-	public void setRows(int rows) {
-		this.rows = rows;
+	public int getCubeSize() {
+		return cubeSize;
+	}
+
+	public void setCubeSize(int cubeSize) {
+		this.cubeSize = cubeSize;
+	}
+
+	public int getStartLines() {
+		return startLines;
 	}
 }
