@@ -4,6 +4,7 @@ import de.kftit.utils.Utils;
 import de.kgftit.cubeslide.R;
 
 import android.graphics.Point;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -16,13 +17,20 @@ public class Cube extends ImageView{
 	private int blinkCount;
 	private Point position;
 	private final int fallingSpeed = 4;
+	private FrameLayout.LayoutParams layout;
 	
+	
+
 	public Cube(FrameLayout spielfeld, int size, boolean ohneFarbe, boolean hidden, Point pos) {
 		super(spielfeld.getContext());
 		this.setOhneFarbe(ohneFarbe);
 		this.setHidden(hidden);
 		this.setPosition(pos);
-		this.layout(pos.x, pos.y, pos.x + size, pos.y + size);
+		layout = new FrameLayout.LayoutParams(size, size);
+		layout.gravity = Gravity.TOP + Gravity.LEFT;
+		layout.leftMargin = pos.x;
+		layout.topMargin = pos.y;
+		
 		if (ohneFarbe){
 			this.setBackgroundColor(getResources().getColor(R.color.SpielsteinUnbekannt));
 		}else if (hidden){
@@ -88,5 +96,36 @@ public class Cube extends ImageView{
 
 	public int getFallingSpeed() {
 		return fallingSpeed;
+	}
+	public int[] getColorID() {
+		return colorID;
+	}
+
+	public void setColorID(int[] colorID) {
+		this.colorID = colorID;
+	}
+
+	public int getActColor() {
+		return actColor;
+	}
+
+	public void setActColor(int actColor) {
+		this.actColor = actColor;
+	}
+
+	public int getBlinkCount() {
+		return blinkCount;
+	}
+
+	public void setBlinkCount(int blinkCount) {
+		this.blinkCount = blinkCount;
+	}
+
+	public FrameLayout.LayoutParams getLayout() {
+		return layout;
+	}
+
+	public void setLayout(FrameLayout.LayoutParams layout) {
+		this.layout = layout;
 	}
 }
